@@ -11,14 +11,14 @@ module.exports = {
     async create(req,res){
         
         const {nome_pet,proprietario_pet,especie_pet,raca_pet,
-        pelagem_pet,sexo_pet,peso_pet,idade_pet,nascimento_pet} = req.body;
+        pelagem_pet,sexo_pet,peso_pet,idade_pet} = req.body;
 
         let data = {};
         
         let animals = await Animal.findOne({nome_pet});
         if(!animals){
             data = {nome_pet,proprietario_pet,especie_pet,raca_pet,
-                pelagem_pet,sexo_pet,peso_pet,idade_pet,nascimento_pet};
+                pelagem_pet,sexo_pet,peso_pet,idade_pet};
             animals = await Animal.create(data);
             return res.status(200).json(animals);
 
@@ -41,13 +41,14 @@ module.exports = {
 
     async update(req,res){
         const {nome_pet,proprietario_pet,especie_pet,raca_pet,
-            pelagem_pet,sexo_pet,peso_pet,idade_pet,nascimento_pet} = req.body;
+            pelagem_pet,sexo_pet,peso_pet,idade_pet} = req.body;
        
             const data = {nome_pet,proprietario_pet,especie_pet,raca_pet,
-            pelagem_pet,sexo_pet,peso_pet,idade_pet,nascimento_pet};
+            pelagem_pet,sexo_pet,peso_pet,idade_pet};
 
         const animals = await Animal.findOneAndUpdate({_id},data,{new:true});
         return res.json(animals);
+        
 
     },
     
