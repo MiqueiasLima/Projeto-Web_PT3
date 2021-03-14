@@ -4,8 +4,8 @@ const Usuario = require('../models/usuarioModels');
 module.exports = {
 
    async index(req,res){
-        const user = await Usuario.find();
-        res.json(user);
+        const animal = await Usuario.find();
+        res.json(animal);
     },
     
     async create(req,res){
@@ -14,36 +14,35 @@ module.exports = {
 
         let data = {};
         
-        let user = await Usuario.findOne({email_usuario});
-        if(!user){
+        let animal = await Usuario.findOne({email_usuario});
+        if(!animal){
             data = {nome_usuario,email_usuario,tipo_usuario,senha_usuario};
-            user = await Usuario.create(data);
-            return res.status(200).json(user);
+            animal = await Usuario.create(data);
+            return res.status(200).json(animal);
 
         }else{
-            return res.status(500).json(user);
+            return res.status(500).json(animal);
         }
     },
 
    async details(req,res){
         const {_id} = req.params;
-        const user = await Usuario.findOne({_id});
-        return res.json(user);
+        const animal = await Usuario.findOne({_id});
+        return res.json(animal);
     },
 
     async delete(req,res){
         const {_id} = req.params;
-        const user = await Usuario.findByIdAndDelete({_id});
-        return res.json(user);
+        const animal = await Usuario.findByIdAndDelete({_id});
+        return res.json(animal);
     },
 
     async update(req,res){
         const {_id,nome_usuario,email_usuario,senha_usuario,tipo_usuario} = req.body;
         const data = {nome_usuario,email_usuario,senha_usuario,tipo_usuario};
 
-        const user = await Usuario.findOneAndUpdate({_id},data,{new:true});
-        return res.json(user);
-
+        const animal = await Usuario.findOneAndUpdate({_id},data,{new:true});
+        return res.json(animal);
 
     },
     
