@@ -3,12 +3,14 @@ const bcrypt = require('bcrypt');
 
 const DataSchema = new mongoose.Schema({
 
-    nome_usuario:String,
-    email_usuario:String,
-    tipo_usuario:{type:Number,default:1},
-    senha_usuario:String,
-
-
+    nome_pet:String,
+    proprietario_pet:String,
+    especie_pet:String,
+    raca_pet:String,
+    pelagem_pet:String,
+    sexo_pet:String,
+    peso_pet:{type:Number,default:0},
+    idade_pet:{type:Number,default:0},
 
 },{
     timestamps:true
@@ -32,5 +34,5 @@ DataSchema.pre('findOneAndUpdate',function(next){
     next();
 })
 
-const usuarios = mongoose.model('Usuarios',DataSchema);
-module.exports = usuarios;
+const animal = mongoose.model('Animal',DataSchema);
+module.exports = animal;

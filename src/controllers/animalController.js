@@ -1,11 +1,11 @@
-const Usuario = require('../models/usuarioModels');
+const Animal = require('../models/animalModels');
 
 
 module.exports = {
 
    async index(req,res){
-        const animal = await Usuario.find();
-        res.json(animal);
+        const animals = await Animal.find();
+        res.json(animals);
     },
     
     async create(req,res){
@@ -14,35 +14,35 @@ module.exports = {
 
         let data = {};
         
-        let animal = await Usuario.findOne({email_usuario});
-        if(!animal){
+        let animals = await Animal.findOne({email_usuario});
+        if(!animals){
             data = {nome_usuario,email_usuario,tipo_usuario,senha_usuario};
-            animal = await Usuario.create(data);
-            return res.status(200).json(animal);
+            animals = await Animal.create(data);
+            return res.status(200).json(animals);
 
         }else{
-            return res.status(500).json(animal);
+            return res.status(500).json(animals);
         }
     },
 
    async details(req,res){
         const {_id} = req.params;
-        const animal = await Usuario.findOne({_id});
-        return res.json(animal);
+        const animals = await Animal.findOne({_id});
+        return res.json(animals);
     },
 
     async delete(req,res){
         const {_id} = req.params;
-        const animal = await Usuario.findByIdAndDelete({_id});
-        return res.json(animal);
+        const animals = await Animal.findByIdAndDelete({_id});
+        return res.json(animals);
     },
 
     async update(req,res){
         const {_id,nome_usuario,email_usuario,senha_usuario,tipo_usuario} = req.body;
         const data = {nome_usuario,email_usuario,senha_usuario,tipo_usuario};
 
-        const animal = await Usuario.findOneAndUpdate({_id},data,{new:true});
-        return res.json(animal);
+        const animals = await Animal.findOneAndUpdate({_id},data,{new:true});
+        return res.json(animals);
 
     },
     
