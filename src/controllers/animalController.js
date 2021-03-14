@@ -40,7 +40,7 @@ module.exports = {
     },
 
     async update(req,res){
-        const {nome_pet,proprietario_pet,especie_pet,raca_pet,
+        const {_id,nome_pet,proprietario_pet,especie_pet,raca_pet,
             pelagem_pet,sexo_pet,peso_pet,idade_pet} = req.body;
        
             const data = {nome_pet,proprietario_pet,especie_pet,raca_pet,
@@ -48,7 +48,7 @@ module.exports = {
 
         const animals = await Animal.findOneAndUpdate({_id},data,{new:true});
         return res.json(animals);
-        
+
 
     },
     
