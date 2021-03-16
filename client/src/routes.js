@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter,Switch, Router} from 'react-router-dom'; 
+import {BrowserRouter,Switch, Route} from 'react-router-dom'; 
 
 //Imports Admin
 import DashBoard from './pages/admin/dashboard'
@@ -16,7 +16,7 @@ import UsuariosCadastrar from './pages/admin/usuarios/usuarios.cadastro';
 //Imports do Cliente
 import Home from './pages/client/home'
 import AnimalDetails from './pages/client/animal/animal.details';
-import CadastroAnimais from './pages/admin/animais/animaisCadastro';
+
 
 export default function Routes(){
     return(
@@ -24,7 +24,7 @@ export default function Routes(){
         <BrowserRouter>
             <Switch>
                 {/*Rotas do Cliente*/}
-                <Route path = "/" exact component = {home}/>
+                <Route path = "/" exact component = {Home}/>
                 <Route path = "/animais/:idAnimal" exact component = {AnimalDetails}/>
                 
                 {/*Rotas do Amin*/}
