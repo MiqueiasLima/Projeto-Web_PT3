@@ -1,5 +1,6 @@
 
 import Inicio from './pages/client/painel';
+import React from 'react';
 
 function App() {
   return (
