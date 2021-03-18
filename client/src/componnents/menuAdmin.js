@@ -4,11 +4,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Pets from '@material-ui/icons/Pets';
 import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 
 export const mainListItems = (
   <div>
@@ -28,7 +26,7 @@ export const mainListItems = (
 
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <Pets/>
       </ListItemIcon>
       <ListItemText primary="Animais" />
     </ListItem>
@@ -42,7 +40,7 @@ export const secondaryListItems = (
     <ListSubheader inset>Configurações</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <ExitToApp />
       </ListItemIcon>
       <ListItemText primary="Sair" />
     </ListItem>
