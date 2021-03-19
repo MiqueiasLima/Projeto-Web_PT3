@@ -10,21 +10,21 @@ import ExitToApp from '@material-ui/icons/ExitToApp';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem  component = "a" button href = "/admin">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Dashboard"/>
     </ListItem>
     
-    <ListItem button>
+    <ListItem component = "a" button href= "/admin/usuarios">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Usuários" />
     </ListItem>
 
-    <ListItem button>
+    <ListItem component = "a" button href = "/admin/animais">
       <ListItemIcon>
         <Pets/>
       </ListItemIcon>
