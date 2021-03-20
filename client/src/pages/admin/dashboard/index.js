@@ -3,32 +3,21 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
 
-import Badge from '@material-ui/core/Badge';
+
+
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 
+
+import Copyright from '../../../componnents/footer-admin';
 
 import MenuAdmin from '../../../componnents/menu-admin';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="javascript::">
-        Sistema de Cadastro de PETS
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 
 
+const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -109,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
- 
+  const classes = useStyles();
   
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
