@@ -49,10 +49,11 @@ export default function CadastroDeAnimais() {
   return (
     <div className={classes.root}>
      
-      <MenuAdmin/>
+      <MenuAdmin title = {'PET'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+        <h2>Formulário de Cadastro</h2>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
           <TextField
@@ -61,7 +62,8 @@ export default function CadastroDeAnimais() {
             name="nome_pet"
             label="Nome PET"
             fullWidth
-            autoComplete="given-name"
+            autoComplete='none'
+            
           />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -71,7 +73,7 @@ export default function CadastroDeAnimais() {
             name="proprietario_pet"
             label="Proprietario PET"
             fullWidth
-            autoComplete="family-name"
+            autoComplete="given-name"
           />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -81,9 +83,62 @@ export default function CadastroDeAnimais() {
             name="especie_pet"
             label="Espécie"
             fullWidth
-            autoComplete="given-name"
+            
           />
           </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="raca_pet"
+            name="raca_pet"
+            label="Raça"
+            fullWidth
+           
+          />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="pelagem_pet"
+            name="pelagem_pet"
+            label="Pelagem"
+            fullWidth
+           
+          />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="sexo_pet"
+            name="sexo_pet"
+            label="Sexo"
+            fullWidth
+            
+          />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            type = 'Number'
+            id="peso_pet"
+            name="peso_pet"
+            label="Peso"
+            fullWidth
+            autoComplete="none"
+          />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            type = 'Number'
+            id="idade_pet"
+            name="idade_pet"
+            label="Idade"
+            fullWidth
+            autoComplete="none"
+          />
+          </Grid>
+         
         </Grid>
           <Box pt={4}>
             <Copyright />
