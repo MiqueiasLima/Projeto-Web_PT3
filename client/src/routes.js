@@ -14,7 +14,7 @@ import UsuariosCadastrar from './pages/admin/usuarios/usuarios.cadastro';
 
 
 //Imports do Cliente
-import Home from './pages/client/home'
+import Home from './pages/client/home/index'
 import AnimalDetails from './pages/client/animal/animal.details';
 
 
@@ -27,7 +27,7 @@ export default function Routes(){
                 <Route path = "/" exact component = {Home}/>
                 <Route path = "/animais/:idAnimal" exact component = {AnimalDetails}/>
                 
-                {/*Rotas do Amin*/}
+                {/*Rotas do Admin*/}
                 <Route path = "/admin" exact component = {DashBoard}/>
                 <Route path = "/admin/animais" exact component = {Animais}/>
                 <Route path = "/admin/animais/cadastrar" exact component = {CadastrarAnimais}/>

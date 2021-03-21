@@ -11,12 +11,11 @@ import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-    },
+   
     toolbar: {
       paddingRight: 24, // keep right padding when drawer closed
     },
@@ -72,21 +71,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     appBarSpacer: theme.mixins.toolbar,
-    content: {
-      flexGrow: 1,
-      height: '100vh',
-      overflow: 'auto',
-    },
-    container: {
-      paddingTop: theme.spacing(4),
-      paddingBottom: theme.spacing(4),
-    },
-    paper: {
-      padding: theme.spacing(2),
-      display: 'flex',
-      overflow: 'auto',
-      flexDirection: 'column',
-    },
+
     fixedHeight: {
       height: 240,
     },
@@ -106,6 +91,7 @@ export default function MenuAdmin(){
     
     return(
         <>
+         <CssBaseline/>
         <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
           <IconButton
