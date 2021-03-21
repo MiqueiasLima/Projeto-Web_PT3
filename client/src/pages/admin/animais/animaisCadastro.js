@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
 
 
 
@@ -52,11 +53,38 @@ export default function CadastroDeAnimais() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-          
-            <h1>Cadastro de Animais</h1>
-            
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="nome_pet"
+            name="nome_pet"
+            label="Nome PET"
+            fullWidth
+            autoComplete="given-name"
+          />
           </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="proprietario_pet"
+            name="proprietario_pet"
+            label="Proprietario PET"
+            fullWidth
+            autoComplete="family-name"
+          />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="especie_pet"
+            name="especie_pet"
+            label="Espécie"
+            fullWidth
+            autoComplete="given-name"
+          />
+          </Grid>
+        </Grid>
           <Box pt={4}>
             <Copyright />
           </Box>
