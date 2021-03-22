@@ -5,8 +5,9 @@ import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button'
 
-
+import api from '../../../services/api';
 import Copyright from '../../../componnents/footer-admin';
 import MenuAdmin from '../../../componnents/menu-admin';
 
@@ -49,6 +50,41 @@ export default function CadastroDeAnimais() {
   const [sexo_pet,setSexo_pet] = useState('');
   const [peso_pet,setPeso_pet] = useState('');
   const [idade_pet,setIdade_pet] = useState('');
+
+  async function handleSubmit(){
+
+
+
+    const data = {nome_pet:nome_pet,
+                  proprietario_pet:proprietario_pet,
+                  especie_pet:especie_pet,
+                  raca_pet:raca_pet,
+                  pelagem_pet:pelagem_pet,
+                  sexo_pet:sexo_pet,
+                  peso_pet:peso_pet,
+                  idade_pet:idade_pet}
+
+
+      if(nome_pet !== '' && proprietario_pet !== '' && especie_pet !== '' && raca_pet !== ''
+      && pelagem_pet !== '' && sexo_pet !== '' && peso_pet !== '' && idade_pet !== ''){
+          
+        const response = await api.post('/api/animal',data);
+        
+        if(response.status === 200){
+          window.location.href = '/admin/animais'
+        }
+        else{
+          alert('Erro ao cadastrar usuário');
+        }
+      }else{
+        alert("Preencha todos os campos");
+      }
+
+    
+
+    
+  }
+
 
   return (
     <div className={classes.root}>
@@ -157,7 +193,7 @@ export default function CadastroDeAnimais() {
           />
           </Grid>
           <Grid item xs = {12} sm ={12}>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick = {handleSubmit}>
             Salvar Cadastro
           </Button>
           </Grid>
