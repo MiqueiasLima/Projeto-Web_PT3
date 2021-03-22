@@ -1,18 +1,13 @@
-import React from 'react';
-
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
-
-
-
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 
 import Copyright from '../../../componnents/footer-admin';
-
 import MenuAdmin from '../../../componnents/menu-admin';
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +41,15 @@ const useStyles = makeStyles((theme) => ({
 export default function CadastroDeAnimais() {
   const classes = useStyles();
   
+  const [nome_pet,setNome_pet] = useState('');
+  const [proprietario_pet,setProprietario_pet] = useState('');
+  const [especie_pet,setEspecie_pet] = useState('');
+  const [raca_pet,setRaca_pet] = useState('');
+  const [pelagem_pet,setPelagem_pet] = useState('');
+  const [sexo_pet,setSexo_pet] = useState('');
+  const [peso_pet,setPeso_pet] = useState('');
+  const [idade_pet,setIdade_pet] = useState('');
+
   return (
     <div className={classes.root}>
      
@@ -63,6 +67,8 @@ export default function CadastroDeAnimais() {
             label="Nome PET"
             fullWidth
             autoComplete='none'
+            value = {nome_pet}
+            onChange = {e => setNome_pet(e.target.value)}
             
           />
           </Grid>
@@ -74,6 +80,8 @@ export default function CadastroDeAnimais() {
             label="Proprietario PET"
             fullWidth
             autoComplete="given-name"
+            value = {proprietario_pet}
+            onChange = {e => setProprietario_pet(e.target.value)}
           />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -83,6 +91,8 @@ export default function CadastroDeAnimais() {
             name="especie_pet"
             label="Espécie"
             fullWidth
+            value = {especie_pet}
+            onChange = {e => setEspecie_pet(e.target.value)}
             
           />
           </Grid>
@@ -93,7 +103,8 @@ export default function CadastroDeAnimais() {
             name="raca_pet"
             label="Raça"
             fullWidth
-           
+            value = {raca_pet}
+            onChange = {e => setRaca_pet(e.target.value)}
           />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -103,7 +114,8 @@ export default function CadastroDeAnimais() {
             name="pelagem_pet"
             label="Pelagem"
             fullWidth
-           
+            value = {pelagem_pet}
+            onChange = {e => setPelagem_pet(e.target.value)}
           />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -113,6 +125,8 @@ export default function CadastroDeAnimais() {
             name="sexo_pet"
             label="Sexo"
             fullWidth
+            value = {sexo_pet}
+            onChange = {e => setSexo_pet(e.target.value)}
             
           />
           </Grid>
@@ -125,6 +139,8 @@ export default function CadastroDeAnimais() {
             label="Peso"
             fullWidth
             autoComplete="none"
+            value = {peso_pet}
+            onChange = {e => setPeso_pet(e.target.value)}
           />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -136,9 +152,15 @@ export default function CadastroDeAnimais() {
             label="Idade"
             fullWidth
             autoComplete="none"
+            value = {idade_pet}
+            onChange = {e => setIdade_pet(e.target.value)}
           />
           </Grid>
-         
+          <Grid item xs = {12} sm ={12}>
+          <Button variant="contained" color="primary">
+            Salvar Cadastro
+          </Button>
+          </Grid>
         </Grid>
           <Box pt={4}>
             <Copyright />
