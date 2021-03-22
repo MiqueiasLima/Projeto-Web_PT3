@@ -79,9 +79,6 @@ export default function CadastroDeAnimais() {
       }else{
         alert("Preencha todos os campos");
       }
-
-    
-
     
   }
 
