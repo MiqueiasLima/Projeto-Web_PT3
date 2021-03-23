@@ -1,24 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Box from '@material-ui/core/Box';
-
-
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper';
 
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 
+import api from '../../../services/api';
 import Copyright from '../../../componnents/footer-admin';
-
 import MenuAdmin from '../../../componnents/menu-admin';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
- 
+
   title: {
     flexGrow: 1,
   },
@@ -39,29 +44,77 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     flexDirection: 'column',
   },
- 
+
 }));
+
 
 export default function AnimaisList() {
   const classes = useStyles();
-  
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const[animais,setAnimais] = useState([]);
+
+  useEffect(()=>{
+      async function loadAnimais(){
+            const response = await api.get("/api/animais");
+            console.log(response);
+            setAnimais(response.data);  
+      }
+      loadAnimais();
+  },[])
 
   return (
     <div className={classes.root}>
-      
-      <MenuAdmin title={'Lista de Animais'}/>
+
+      <MenuAdmin title={'Lista de Animais'} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item sm={12}>
-              <h2>Listagem de Animais</h2>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={12}>
-                    
+              <Paper className={classes.paper}>
+
+                <h2>Listagem de Animais</h2>
+                <Grid container spacing={3}>
+                  <Grid item xs={12} sm={12}>
+                    <TableContainer component={Paper}>
+                      <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>Nome_PET</TableCell>
+                            <TableCell>Proprietario</TableCell>
+                            <TableCell align="right">Esécie</TableCell>
+                            <TableCell align="right">Raça</TableCell>
+                            <TableCell align="right">Pelagem</TableCell>
+                            <TableCell align="right">Sexo</TableCell>
+                            <TableCell align="right">Peso(kg)</TableCell>
+                            <TableCell align="right">Idade</TableCell>
+                            <TableCell>Opções</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {animais.map((row) => (
+                            <TableRow key={row._id}>
+                              <TableCell component="th" scope="row">
+                                {row.nome_pet}
+                              </TableCell>
+                              <TableCell>{row.proprietario_pet}</TableCell>
+                              <TableCell>{row.especie_pet}</TableCell>
+                              <TableCell>{row.raca_pet}</TableCell>
+                              <TableCell>{row.pelagem_pet}</TableCell>
+                              <TableCell>{row.sexo_pet}</TableCell>
+                              <TableCell>{row.peso_pet}</TableCell>
+                              <TableCell>{row.idade_pet}</TableCell>
+                              <TableCell>Botões</TableCell>
+                              
+                            </TableRow>
+                          ))}
+                          
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Grid>
                 </Grid>
-              </Grid>
+              </Paper>
             </Grid>
           </Grid>
           <Box pt={4}>
