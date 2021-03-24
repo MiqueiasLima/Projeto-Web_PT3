@@ -52,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+function cadastroAnimal(){
+  window.location.href = '/admin/animais/cadastrar'
+}
 
 export default function AnimaisList() {
   const classes = useStyles();
@@ -122,7 +125,7 @@ export default function AnimaisList() {
                 </Grid>
               </Paper>
               <br></br>
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary" onClick ={cadastroAnimal}>
             Novo Cadastro
           </Button>
             </Grid>
