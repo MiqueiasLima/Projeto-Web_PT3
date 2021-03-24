@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button'
 
 import Box from '@material-ui/core/Box';
 import Table from '@material-ui/core/Table';
@@ -55,8 +56,8 @@ export default function AnimaisList() {
 
   useEffect(()=>{
       async function loadAnimais(){
-            const response = await api.get("/api/animais");
-            console.log(response);
+            const response = await api.get("/api/animal");
+            console.log(response.data);
             setAnimais(response.data);  
       }
       loadAnimais();
@@ -82,12 +83,12 @@ export default function AnimaisList() {
                           <TableRow>
                             <TableCell>Nome_PET</TableCell>
                             <TableCell>Proprietario</TableCell>
-                            <TableCell align="right">Esécie</TableCell>
-                            <TableCell align="right">Raça</TableCell>
-                            <TableCell align="right">Pelagem</TableCell>
-                            <TableCell align="right">Sexo</TableCell>
-                            <TableCell align="right">Peso(kg)</TableCell>
-                            <TableCell align="right">Idade</TableCell>
+                            <TableCell>Espécie</TableCell>
+                            <TableCell>Raça</TableCell>
+                            <TableCell>Pelagem</TableCell>
+                            <TableCell>Sexo</TableCell>
+                            <TableCell>Peso(kg)</TableCell>
+                            <TableCell>Idade</TableCell>
                             <TableCell>Opções</TableCell>
                           </TableRow>
                         </TableHead>
@@ -115,6 +116,10 @@ export default function AnimaisList() {
                   </Grid>
                 </Grid>
               </Paper>
+              <br></br>
+              <Button variant="contained" color="primary">
+            Novo Cadastro
+          </Button>
             </Grid>
           </Grid>
           <Box pt={4}>
