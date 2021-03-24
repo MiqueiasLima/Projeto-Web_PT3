@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button'
+
 
 import Box from '@material-ui/core/Box';
 import Table from '@material-ui/core/Table';
@@ -71,6 +71,19 @@ export default function AnimaisList() {
     loadAnimais();
   }, [])
 
+  async function handleDelete(id){
+
+    if(window.confirm("Deseja excluir este cadastro?")){
+      var result = await api.delete('/api/animal/'+id);
+      if(result.status == 200){
+        window.location.href ='/admin/animais' 
+      }
+      else{
+        alert("Não foi possível deletar")
+      }
+    }
+  
+  }
   return (
     <div className={classes.root}>
 
@@ -118,7 +131,7 @@ export default function AnimaisList() {
                               <TableCell>
                                 <ButtonGroup size="small" aria-label="small outlined button group">
                                   <Button color='primary'>Atualizar</Button>
-                                  <Button color = 'secondary'>Deletar</Button>
+                                  <Button color = 'secondary' onClick={()=>handleDelete(row._id)}>Deletar</Button>
                                 </ButtonGroup>
                               </TableCell>
 
