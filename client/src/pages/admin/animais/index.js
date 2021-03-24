@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function cadastroAnimal(){
-  window.location.href = '/admin/animais/cadastrar'
+  window.location.href = '/admin/animais/cadastrar';
 }
 
 export default function AnimaisList() {
