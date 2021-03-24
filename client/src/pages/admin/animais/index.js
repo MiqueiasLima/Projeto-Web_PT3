@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button'
@@ -11,6 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup'
 
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -46,28 +48,28 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
 
-  lines_tables:{
-    fontWeight:'bold'
+  lines_tables: {
+    fontWeight: 'bold'
   }
 
 }));
 
-function cadastroAnimal(){
+function cadastroAnimal() {
   window.location.href = '/admin/animais/cadastrar';
 }
 
 export default function AnimaisList() {
   const classes = useStyles();
 
-  const[animais,setAnimais] = useState([]);
+  const [animais, setAnimais] = useState([]);
 
-  useEffect(()=>{
-      async function loadAnimais(){
-            const response = await api.get("/api/animal");
-            setAnimais(response.data);  
-      }
-      loadAnimais();
-  },[])
+  useEffect(() => {
+    async function loadAnimais() {
+      const response = await api.get("/api/animal");
+      setAnimais(response.data);
+    }
+    loadAnimais();
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -87,17 +89,17 @@ export default function AnimaisList() {
                       <Table className={classes.table} aria-label="simple table">
                         <TableHead >
                           <TableRow >
-                            
-                            <TableCell className = {classes.lines_tables}>Nome_PET</TableCell>
-                            <TableCell className = {classes.lines_tables}>Proprietario</TableCell>
-                            <TableCell className = {classes.lines_tables}>Espécie</TableCell>
-                            <TableCell className = {classes.lines_tables}>Raça</TableCell>
-                            <TableCell className = {classes.lines_tables}>Pelagem</TableCell>
-                            <TableCell className = {classes.lines_tables}>Sexo</TableCell>
-                            <TableCell className = {classes.lines_tables}>Peso(kg)</TableCell>
-                            <TableCell className = {classes.lines_tables}>Idade</TableCell>
-                            <TableCell className = {classes.lines_tables}>Opções</TableCell>
-                            
+
+                            <TableCell className={classes.lines_tables}>Nome_PET</TableCell>
+                            <TableCell className={classes.lines_tables}>Proprietario</TableCell>
+                            <TableCell className={classes.lines_tables}>Espécie</TableCell>
+                            <TableCell className={classes.lines_tables}>Raça</TableCell>
+                            <TableCell className={classes.lines_tables}>Pelagem</TableCell>
+                            <TableCell className={classes.lines_tables}>Sexo</TableCell>
+                            <TableCell className={classes.lines_tables}>Peso(kg)</TableCell>
+                            <TableCell className={classes.lines_tables}>Idade</TableCell>
+                            <TableCell className={classes.lines_tables}>Opções</TableCell>
+
                           </TableRow>
                         </TableHead>
                         <TableBody>
@@ -113,11 +115,16 @@ export default function AnimaisList() {
                               <TableCell>{row.sexo_pet}</TableCell>
                               <TableCell>{row.peso_pet}</TableCell>
                               <TableCell>{row.idade_pet}</TableCell>
-                              <TableCell>Botões</TableCell>
-                              
+                              <TableCell>
+                                <ButtonGroup size="small" aria-label="small outlined button group">
+                                  <Button color='primary'>Atualizar</Button>
+                                  <Button color = 'secondary'>Deletar</Button>
+                                </ButtonGroup>
+                              </TableCell>
+
                             </TableRow>
                           ))}
-                          
+
                         </TableBody>
                       </Table>
                     </TableContainer>
@@ -125,8 +132,8 @@ export default function AnimaisList() {
                 </Grid>
               </Paper>
               <br></br>
-              <Button variant="contained" color="primary" onClick ={cadastroAnimal}>
-            Novo Cadastro
+              <Button variant="contained" color="primary" onClick={cadastroAnimal}>
+                Novo Cadastro
           </Button>
             </Grid>
           </Grid>
