@@ -46,6 +46,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
 
+  lines_tables:{
+    fontWeight:'bold'
+  }
+
 }));
 
 
@@ -57,7 +61,6 @@ export default function AnimaisList() {
   useEffect(()=>{
       async function loadAnimais(){
             const response = await api.get("/api/animal");
-            console.log(response.data);
             setAnimais(response.data);  
       }
       loadAnimais();
@@ -79,17 +82,19 @@ export default function AnimaisList() {
                   <Grid item xs={12} sm={12}>
                     <TableContainer component={Paper}>
                       <Table className={classes.table} aria-label="simple table">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell>Nome_PET</TableCell>
-                            <TableCell>Proprietario</TableCell>
-                            <TableCell>Espécie</TableCell>
-                            <TableCell>Raça</TableCell>
-                            <TableCell>Pelagem</TableCell>
-                            <TableCell>Sexo</TableCell>
-                            <TableCell>Peso(kg)</TableCell>
-                            <TableCell>Idade</TableCell>
-                            <TableCell>Opções</TableCell>
+                        <TableHead >
+                          <TableRow >
+                            
+                            <TableCell className = {classes.lines_tables}>Nome_PET</TableCell>
+                            <TableCell className = {classes.lines_tables}>Proprietario</TableCell>
+                            <TableCell className = {classes.lines_tables}>Espécie</TableCell>
+                            <TableCell className = {classes.lines_tables}>Raça</TableCell>
+                            <TableCell className = {classes.lines_tables}>Pelagem</TableCell>
+                            <TableCell className = {classes.lines_tables}>Sexo</TableCell>
+                            <TableCell className = {classes.lines_tables}>Peso(kg)</TableCell>
+                            <TableCell className = {classes.lines_tables}>Idade</TableCell>
+                            <TableCell className = {classes.lines_tables}>Opções</TableCell>
+                            
                           </TableRow>
                         </TableHead>
                         <TableBody>
