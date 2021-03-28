@@ -130,7 +130,7 @@ export default function AnimaisList() {
                               <TableCell>{row.idade_pet}</TableCell>
                               <TableCell>
                                 <ButtonGroup size="small" aria-label="small outlined button group">
-                                  <Button color='primary'>Atualizar</Button>
+                                  <Button color='primary' href = {"/admin/animais/editar/"+row._id}>Atualizar</Button>
                                   <Button color = 'secondary' onClick={()=>handleDelete(row._id)}>Deletar</Button>
                                 </ButtonGroup>
                               </TableCell>
