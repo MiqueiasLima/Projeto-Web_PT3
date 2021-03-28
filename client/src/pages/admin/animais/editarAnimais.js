@@ -10,34 +10,7 @@ import Button from '@material-ui/core/Button'
 import api from '../../../services/api';
 import Copyright from '../../../componnents/footer-admin';
 import MenuAdmin from '../../../componnents/menu-admin';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
- 
-  title: {
-    flexGrow: 1,
-  },
-
-  appBarSpacer: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    height: '100vh',
-    overflow: 'auto',
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-  },
- 
-}));
+import useStyles from '../../../estilos/estilos'
 
 export default function CadastroDeAnimais() {
   const classes = useStyles();
