@@ -10,9 +10,10 @@ import Button from '@material-ui/core/Button'
 import api from '../../../services/api';
 import Copyright from '../../../componnents/footer-admin';
 import MenuAdmin from '../../../componnents/menu-admin';
-
+import useStyles from '../../../estilos/estilos'
 
 export default function CadastroDeAnimais() {
+  
   const classes = useStyles();
   
   const [nome_pet,setNome_pet] = useState('');
