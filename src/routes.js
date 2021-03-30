@@ -3,7 +3,6 @@ const routes = express.Router();
 
 const Animal = require('./controllers/animalController');
 
-
 //Rotas de Animal
 routes.get('/',Animal.index);
 routes.get('/api/animal',Animal.index);
