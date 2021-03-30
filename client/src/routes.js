@@ -23,9 +23,6 @@ export default function Routes(){
 
         <BrowserRouter>
             <Switch>
-                {/*Rotas do Cliente*/}
-                <Route path = "/" exact component = {Home}/>
-                <Route path = "/animais/:idAnimal" exact component = {AnimalDetails}/>
                 
                 {/*Rotas do Admin*/}
                 <Route path = "/admin" exact component = {DashBoard}/>
@@ -33,10 +30,6 @@ export default function Routes(){
                 <Route path = "/admin/animais/cadastrar" exact component = {CadastrarAnimais}/>
                 <Route path = "/admin/animais/editar/:idAnimal" exact component = {EditarAnimais}/>
                 
-                {/*Rotas dos Usuários*/}
-                <Route path = "/admin/usuarios" exact component = {Usuarios}/>
-                <Route path = "/admin/usuarios/cadastrar" exact component = {UsuariosCadastrar}/>
-                <Route path = "/admin/usuarios/editar/:idAnimal" exact component = {UsuariosEditar}/>
 
             </Switch>
         </BrowserRouter>
