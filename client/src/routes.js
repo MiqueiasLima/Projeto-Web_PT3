@@ -7,17 +7,6 @@ import Animais from './pages/admin/animais';
 import EditarAnimais from './pages/admin/animais/editarAnimais';
 import CadastrarAnimais from './pages/admin/animais/animaisCadastro';
 
-
-import Usuarios from './pages/admin/usuarios';
-import UsuariosEditar from './pages/admin/usuarios/usuarios.editar';
-import UsuariosCadastrar from './pages/admin/usuarios/usuarios.cadastro';
-
-
-//Imports do Cliente
-import Home from './pages/client/home/index'
-import AnimalDetails from './pages/client/animal/animal.details';
-
-
 export default function Routes(){
     return(
 
@@ -25,6 +14,7 @@ export default function Routes(){
             <Switch>
                 
                 {/*Rotas do Admin*/}
+                <Route path = "/" exact component = {Animais}/>
                 <Route path = "/admin" exact component = {DashBoard}/>
                 <Route path = "/admin/animais" exact component = {Animais}/>
                 <Route path = "/admin/animais/cadastrar" exact component = {CadastrarAnimais}/>
