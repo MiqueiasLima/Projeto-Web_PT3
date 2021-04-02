@@ -28,7 +28,6 @@ export default function CadastroDeAnimais() {
   useEffect(() =>{
     async function getUsuario(){
     var response = await api.get("/api/animal.details/"+idAnimal)
-     console.log(response.data);
     setNome_pet(response.data.nome_pet);
     setProprietario_pet(response.data.proprietario_pet);
     setEspecie_pet(response.data.especie_pet);
